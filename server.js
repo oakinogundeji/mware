@@ -27,21 +27,21 @@ Mongoose.set('strictQuery', true);
 /**
  * Connect to MongoDB Database and initiate Server on connection success
  */
-async function main() {
-    const DBaseUP = await Mongoose.connect(dBURL);
-    return DBaseUP;
+async function main() {    
+    try {
+      await Mongoose.connect(dBURL);
+      console.log('Successfully connected to ' + dBURL);
+      return Server.listen(3030, () => console.log('server UP'));
+
+    }
+    catch (err) {
+      console.error('There was a db connection error');
+      console.error(err.message);
+      return setTimeout(main, 1000);
+    }
 }
 
-main()
-    .then(ok => {
-        console.log('Successfully connected to ' + dBURL);
-        return Server.listen(3030, () => console.log('server UP'));
-    })
-    .catch(err => {
-        console.error('There was a db connection error');
-        console.error(err.message);
-        return setTimeout(main, 1000);
-    });
+main();
 
 process.on('SIGINT', function () {
     Mongoose.connection.close(function () {
