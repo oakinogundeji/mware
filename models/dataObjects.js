@@ -10,7 +10,7 @@ const Mongoose = require('mongoose');
 const DataObjectSchema = new Mongoose.Schema({
     id: {
         type: String,
-        //required: true,
+        required: true,
         unique: true
       },
       localCart: {

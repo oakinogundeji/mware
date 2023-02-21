@@ -13,7 +13,6 @@ const
 Router.post('/saveData', async (req, res) => {
     const data = req.body;
     const dataProps = Object.keys(data);
-    const NewDataObject = {};
     const NewDataObjectDoc = new DataObjects({});
     dataProps.forEach(val => {
         NewDataObjectDoc[val] = data[val];
@@ -29,7 +28,7 @@ Router.post('/saveData', async (req, res) => {
     catch (err) {
         console.log('err saving data', err);
         return res.status(500).json({
-            msg: 'there was an error saving the data',
+            msg: 'there was an error saving the data, please ensure all field values are of the correct data type, or ensure that the "id" attribute is unique. Thank you',
             data: err
         });
     }
@@ -42,7 +41,13 @@ Router.get('/getData', async (req, res) => {
     const objID = req.query.id;
     try {
         const dataObj = await DataObjects.findOne({id: objID}, {_id: 0, __v: 0});
-        console.log('dataObj', dataObj);
+        if(!dataObj) {
+            return res.status(404).json({
+                msg: `data with id: ${objID} does NOT exist, please confirm the correct ID. Thank you.`,
+                data: dataObj
+            })
+
+        }
         return res.status(200).json({
             msg: 'retrieve success',
             data: dataObj
@@ -50,8 +55,8 @@ Router.get('/getData', async (req, res) => {
     }
     catch (err) {
         return res.status(500).json({
-            msg: 'there was an error retrieving the data',
-            data: err.errors.data.properties
+            msg: 'there was an internal server error retrieving the data, please try again later or contact the service provider. THank you',
+            data: err
         });
     }
 });
