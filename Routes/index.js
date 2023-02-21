@@ -12,10 +12,13 @@ const
  */
 Router.post('/saveData', async (req, res) => {
     const data = req.body;
-    console.log('data to save:', data);
-    const NewDataObjectDoc = new DataObjects({
-        data
+    const dataProps = Object.keys(data);
+    const NewDataObject = {};
+    const NewDataObjectDoc = new DataObjects({});
+    dataProps.forEach(val => {
+        NewDataObjectDoc[val] = data[val];
     });
+
     try {
         await NewDataObjectDoc.save();
         return res.status(200).json({
@@ -36,9 +39,10 @@ Router.post('/saveData', async (req, res) => {
  * Route to retrieve Data
  */
 Router.get('/getData', async (req, res) => {
-    const objID = req.body.id;
+    const objID = req.query.id;
     try {
-        const dataObj = await DataObjects.findOne({id: objID}, {_id: 0});
+        const dataObj = await DataObjects.findOne({id: objID}, {_id: 0, __v: 0});
+        console.log('dataObj', dataObj);
         return res.status(200).json({
             msg: 'retrieve success',
             data: dataObj

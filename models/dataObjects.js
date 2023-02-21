@@ -10,7 +10,7 @@ const Mongoose = require('mongoose');
 const DataObjectSchema = new Mongoose.Schema({
     id: {
         type: String,
-        required: true,
+        //required: true,
         unique: true
       },
       localCart: {
@@ -90,19 +90,19 @@ const DataObjectSchema = new Mongoose.Schema({
     locale: {
         type: String,
         default: "en-US"
-        }, // String Users language preference
+        },
     cartCurrency: {
         type: String,
         default: "USD"
-        }, // String Currency charged
+        },
     shippingZone: {
         type: String,
         default: "TR"
-        }, // String IP location of user
+        },
     checkedOut: {
         type: Boolean,
         default: true
-        }, // Boolean indicates whether user is checked out or not
+        },
     couponCode: {
         type: String,
         default: ""
@@ -114,37 +114,37 @@ const DataObjectSchema = new Mongoose.Schema({
     sentToShopify: {
         type: Boolean,
         default: true
-        }, // Boolean Indicates if this is a real transaction to be processed or not
+        },
     primaryVariantId: {
         type: String,
         default: ""
-        }, // String Shopify variant ID of the main product
+        },
     checkoutPageName: {
         type: String,
         default: ""
-        }, // String Indicates the checkout page's name
+        },
     checkoutPageParams: {
     utm_content: {
         type: String,
         default: ""
         }
-    }, // Object Query parameters stored in an object
+    },
     auxPageName: {
         type: String,
         default: ""
-        }, // String Indicates the product type sheets, comforter, towel, steamer
+        },
     landingPageName: {
         type: String,
         default: ""
-        }, // String Indicates the landing page's name
+        },
     funnelName: {
         type: String,
         default: ""
-        }, // String Indicates funnel's name
+        },
     advertorialPageName: {
         type: String,
         default: ""
-        }, // String Indicates the advertorial's name
+        },
     billingAddress: {
     zip: {
         type: String,
