@@ -1,0 +1,42 @@
+{
+    "id": "d41f6f05-538f-414d-88fd-dc0d6cb1f3ac", // String - Unique ID for each transaction
+    "localCart": "{\"lineItems\":[{\"productTitle\":\"5-Year Wear & Tear Warranty\",\"variantTitle\":\"5-Year Wear & Tear Warranty\",\"variantId\":34937177702550,\"title\":\"5-Year Wear & Tear Warranty\",\"subtitle\":\"5-Year Wear & Tear Warranty\",\"price\":19.99,\"quantity\":1,\"shippingRatePerItem\":0,\"discountable\":true,\"compareAtPrice\":null,\"productImage\":\"https://cdn.shopify.com/s/files/1/1647/4405/products/istockphoto-1151021820-612x612_a5cc2378-499a-4ebd-a584-6df64aaf6d59.jpg?v=1647265640\",\"displayName\":\"5-Year Wear & Tear Warranty - 5-Year Wear & Tear Warranty\",\"renewalPeriodDays\":null},{\"productTitle\":\"Limited Time Deal - Miracle Sheet Set + 3pc Towel Set\",\"variantTitle\":\"Queen (Stone) - Signature + FREE 3pc Towel Set / Stone / Signature\",\"variantId\":40509700014230,\"title\":\"Queen (Stone) - Signature + FREE 3pc Towel Set / Stone / Signature\",\"subtitle\":\"Queen (Stone) - Signature + FREE 3pc Towel Set / Stone / Signature\",\"price\":129,\"quantity\":1,\"shippingRatePerItem\":19.95,\"discountable\":true,\"compareAtPrice\":224,\"productImage\":\"https://cdn.shopify.com/s/files/1/1647/4405/products/mrlce_0001_6154a0ac1450559746f81486_selected_price_thumb_gray.png?v=1663355290\",\"displayName\":\"Limited Time Deal - Miracle Sheet Set + 3pc Towel Set - Queen (Stone) - Signature + FREE 3pc Towel Set / Stone / Signature\",\"renewalPeriodDays\":0}],\"taxRate\":0.0635,\"taxDescription\":\"Tax\",\"taxCalculated\":true,\"subTotal\":148.99,\"shippingSurcharge\":0,\"shippingTotal\":19.95,\"taxTotal\":9.46,\"lineItemTotal\":148.99,\"discountType\":\"\",\"discountValue\":0,\"discountTotal\":0,\"discountSubtotal\":148.99,\"discountFreeShipping\":false,\"freeShippingMinimum\":999999999,\"total\":178.4,\"taxableAmount\":168.94}", // Array of objects - Purchased products
+    "locale": "en-US", // String - Users language preference
+    "cartCurrency": "USD", // String - Currency charged
+    "shippingZone": "TR", // String - IP location of user
+    "checkedOut": true, // Boolean - indicates whether user is checked out or not
+    "couponCode": null, // String
+    "authorized": false, // Boolean
+    "sentToShopify": false, // Boolean - Indicates if this is a real transaction to be processed or not
+    "primaryVariantId": "40509700014230", // String - Shopify variant ID of the main product
+    "checkoutPageName": "mb-sheets-checkout-v8", // String - Indicates the checkout page's name
+    "checkoutPageParams": {
+    "utm_content": "utm_value"
+    }, // Object - Query parameters stored in an object
+    "auxPageName": "sheets", // String - Indicates the product type - sheets, comforter, towel, steamer, ...
+    "landingPageName": "mb-sheets-lp-ksp-v27-out", // String - Indicates the landing page's name
+    "funnelName": "mb-sheets-lp-ksp-v27-out", // String - Indicates funnel's name
+    "advertorialPageName": null, // String - Indicates the advertorial's name
+    "billingAddress": {
+    "zip": "06401",
+    "country": "US",
+    "province": "CT",
+    "address2": "Aprt 2",
+    "city": "Fakeville",
+    "phone": "203-555-1212",
+    "address1": "123 Fake St",
+    "last_name": "Order",
+    "first_name": "Test"
+    },
+    "shippingAddress": {
+    "zip": "06401",
+    "country": "US",
+    "province": "CT",
+    "address2": "Aprt 2",
+    "city": "Fakeville",
+    "phone": "203-555-1212",
+    "address1": "123 Fake St",
+    "last_name": "Order",
+    "first_name": "Test"
+    }
+    }
