@@ -13,7 +13,6 @@ const
  * Module variables
  */
 const {dBURL} = process.env;
-console.log(`DBURL: ${dBURL}`);
 
 /**
  * Create Server Instance, pass App as the Listener
