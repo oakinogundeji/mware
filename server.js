@@ -13,6 +13,7 @@ const
  * Module variables
  */
 const {dBURL} = process.env;
+console.log(`DBURL: ${dBURL}`);
 
 /**
  * Create Server Instance, pass App as the Listener
@@ -27,12 +28,12 @@ Mongoose.set('strictQuery', true);
 /**
  * Connect to MongoDB Database and initiate Server on connection success
  */
+
 async function main() {    
     try {
       await Mongoose.connect(dBURL);
       console.log('Successfully connected to ' + dBURL);
       return Server.listen(3030, () => console.log('server UP'));
-
     }
     catch (err) {
       console.error('There was a db connection error');

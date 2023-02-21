@@ -132,7 +132,7 @@ const DataObjectSchema = new Mongoose.Schema({
     auxPageName: {
         type: String,
         default: ""
-        }, // String Indicates the product type sheets, comforter, towel, steamer, ...
+        }, // String Indicates the product type sheets, comforter, towel, steamer
     landingPageName: {
         type: String,
         default: ""

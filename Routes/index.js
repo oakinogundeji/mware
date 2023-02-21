@@ -5,27 +5,29 @@
 const
     express = require('express'),
     Router = express.Router(),
-    Samples = require('../models/sample');
+    DataObjects = require('../models/dataObjects');
 
 /**
  * Route to save Data
  */
-Router.post('/submit', async (req, res) => {
-    const data = req.body.data;
-    const NewSampleDoc = new Samples({
+Router.post('/saveData', async (req, res) => {
+    const data = req.body;
+    console.log('data to save:', data);
+    const NewDataObjectDoc = new DataObjects({
         data
     });
     try {
-        await NewSampleDoc.save();
+        await NewDataObjectDoc.save();
         return res.status(200).json({
             msg: 'save success',
-            data: NewSampleDoc.data
+            data: NewDataObjectDoc.id
         });
     }
     catch (err) {
+        console.log('err saving data', err);
         return res.status(500).json({
             msg: 'there was an error saving the data',
-            data: err.errors.data.properties
+            data: err
         });
     }
 });
@@ -34,16 +36,17 @@ Router.post('/submit', async (req, res) => {
  * Route to retrieve Data
  */
 Router.get('/getData', async (req, res) => {
+    const objID = req.body.id;
     try {
-        const dataObj = await Samples.findOne({});
+        const dataObj = await DataObjects.findOne({id: objID}, {_id: 0});
         return res.status(200).json({
             msg: 'retrieve success',
-            data: dataObj.data
+            data: dataObj
         });
     }
     catch (err) {
         return res.status(500).json({
-            msg: 'there was an error retrieveing the data',
+            msg: 'there was an error retrieving the data',
             data: err.errors.data.properties
         });
     }
