@@ -16,12 +16,15 @@ After the app is installed locally or deployed remotely, 2 endpoints will be ava
 2. **API Endpoints**: The *Routes/index.js* module provides handlers for the **GET** and **POST** endpoints. All data into and out of the middleware is expected to be **JSON**.
 - **GET /getData**: This endpoint expects a query string with an *id* field containing an *id* value in order to retrieve the associated document from the mongodb datastore. The retrieved document has been sanitised to remove *mongodb* specific identifiers which is a security measure to reduce the targetable footprint of the middleware. An **HTTP 200** response will be provided and the return data is of the format:
 
+>
 `
 {
             msg: 'retrieve success',
             data: dataObj
         }
 `
+>
+
 If an **invalid** *id* is provided, the middleware will respond with an **HTTP 404** response and message indicating that the *id* does not exist and a *null* object. The return data is of the format:
 `
 {
