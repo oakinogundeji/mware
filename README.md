@@ -91,14 +91,16 @@ If there are issues with the type formats on the data object e.g. strings used w
 - define a *dBURL* varianble in the *.env* file. This variable identifies the *mongodb* datastore to use. If a local mongodb datastore is being used, then use 
 
 >
-```dBURL=mongodb://localhost:27017```
+```dBURL=mongodb://localhost:27017/<db name>```
 
 >
+
+where *db name* is any database name of your choice. In MOngodb, a database is created automatically if it does not exist upon first use.
 
  If a remote mongodb datatore is being used *dBURL* will look like 
  
  >
- ```dBURL=mongodb+srv://<databasename>:<password>@cluster0.pnhl5eq.mongodb.net/?retryWrites=true&w=majority```
+ ```dBURL=mongodb+srv://<databasename>:<password>@cluster0.pnhl5eq.mongodb.net/<db name>?retryWrites=true&w=majority```
  >
  
  **NB** the local mongodb instance does not use this format since there is a default database used and since the instcnae is running locally, no form of authentication is required.
