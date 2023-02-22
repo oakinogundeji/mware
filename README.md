@@ -88,6 +88,19 @@ If there are issues with the type formats on the data object e.g. strings used w
 - clone from repo
 - run `npm i` to install all modules and dependencies
 - create a *.env* file in the project root directory e.g. `touch .env`. **NB** the *.env* file must be created in the same directory where `npm i` is executed.
-- define a *dBURL* varianble in the *.env* file. This variable identifies the *mongodb* datastore to use. If a local mongodb datastore is being used, then use ```dBURL=mongodb://localhost:27017```. If a remote mongodb datatore is being used *dBURL* will look like ```dBURL=mongodb+srv://<databasename>:<password>@cluster0.pnhl5eq.mongodb.net/?retryWrites=true&w=majority```. **NB** the local mongodb instance does not use this format since there is a default database used and since the instcnae is running locally, no form of authentication is required.
+- define a *dBURL* varianble in the *.env* file. This variable identifies the *mongodb* datastore to use. If a local mongodb datastore is being used, then use 
+
+>
+```dBURL=mongodb://localhost:27017```
+
+>
+
+ If a remote mongodb datatore is being used *dBURL* will look like 
+ 
+ >
+ ```dBURL=mongodb+srv://<databasename>:<password>@cluster0.pnhl5eq.mongodb.net/?retryWrites=true&w=majority```
+ >
+ 
+ **NB** the local mongodb instance does not use this format since there is a default database used and since the instcnae is running locally, no form of authentication is required.
 - run `npm start` this will start up the middleware. Please ensure that no other process is running on port **3030**
 2. **API Calls**: After starting up the middleware, the endpoints can be tested using the sample data in *sample-payload.json* or any compatible data object
