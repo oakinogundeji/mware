@@ -26,36 +26,58 @@ After the app is installed locally or deployed remotely, 2 endpoints will be ava
 >
 
 If an **invalid** *id* is provided, the middleware will respond with an **HTTP 404** response and message indicating that the *id* does not exist and a *null* object. The return data is of the format:
+
+>
 `
 {
-                msg: `data with id: ${objID} does NOT exist, please confirm the correct ID. Thank you.`,
+                msg: 'data with id:------ does NOT exist, please confirm the correct ID. Thank you.',
                 data: dataObj
             }
 `
+>
+
 If for some reason an internal server error occurs when attempting to retrieve the document, the middleware will respond with an **HTTP 500** status and data of the format:
+
+>
 `{
             msg: 'there was an internal server error retrieving the data, please try again later or contact the service provider. THank you',
             data: err
         }
 `
+
+>
+
 - **POST /saveData'**: This endpoint expects a *x-www-form-urlencoded* *POST* request sending a data object of the form shown in *sample-payload.json* file. The only absolutely required field is the *id* field which is used internally by the middleware to build the index on the *mongodb* datastore. If the data is saved without errors, the middleware will respond with an **HTTP 200** status and the *id* of the saved object whuch should match the *id* of the posted data, the response data is of the format:
+
+>
 `{
             msg: 'save success',
             data: NewDataObjectDoc.id
         }
 `
+
+>
+
 If the *id* field is omitted on the data object to be saved, the middleware will respond with an **HTTP 404** status and a message of the format:
+
+>
 `
 {
             msg: 'there was an error saving the data, please ensure that the "id" attribute is present. Thank you'
         }
 `
+
+>
+
 If there are issues with the type formats on the data object e.g. strings used where numbers are expected etc, or if the same object is tried to save more than once (i.e. a data object with an identical *id* attribute) then the middleware responds with an **HTTP 404** status with a helpful error object, the response data is of the format: 
+
+>
 `{
             msg: 'there was an error saving the data, please ensure all field values are of the correct data type, or ensure that the "id" attribute is unique. Thank you',
             data: err
         }
 `
+>
 
 ### Useage:
 
