@@ -12,6 +12,12 @@ const
  */
 Router.post('/saveData', async (req, res) => {
     const data = req.body;
+    if(!data.id) {
+        return res.status(404).json({
+            msg: 'there was an error saving the data, please ensure that the "id" attribute is present. Thank you'
+        });
+
+    }
     const dataProps = Object.keys(data);
     const NewDataObjectDoc = new DataObjects({});
     dataProps.forEach(val => {
@@ -27,7 +33,7 @@ Router.post('/saveData', async (req, res) => {
     }
     catch (err) {
         console.log('err saving data', err);
-        return res.status(500).json({
+        return res.status(404).json({
             msg: 'there was an error saving the data, please ensure all field values are of the correct data type, or ensure that the "id" attribute is unique. Thank you',
             data: err
         });
