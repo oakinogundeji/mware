@@ -24,6 +24,9 @@ App.disable('x-powered-by');
 /**
  * Config Middleware Stack
  */
+if(process.env.NODE_ENV != 'production') {
+  App.use(require('morgan')('dev'));
+}
 App.use(cors());
 App.use(bParser.json());
 App.use(bParser.urlencoded({ extended: true }));
